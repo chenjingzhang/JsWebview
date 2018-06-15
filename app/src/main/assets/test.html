@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0032)http://localhost:8080/jsandroid/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>js_native</title>
+		<meta charset="GBK">
+		
+	</head>
+
+	<body>
+		js与java层相互调用demo
+		<br>
+		<br>
+		<br>
+		<input type="button" value="调用java层方法(无参无返回值)" onclick="CallJavaMethod()"/>
+		<hr />
+		<input id="params" type="text" value="上海-徐汇" />
+		<input type="button" value="调用java层方法(携参有返回值)" onclick="CallJavaMethodParam()" />
+		<br>
+		<br>
+		<br>
+		<br>
+	</body>
+	<script type="text/javascript" language="javascript">
+	        function CallJsMethod() {
+				alert("我是js方法我被javc层调用了(无参)");
+			}
+
+            function CallJSRretunStrMethod() {
+			    alert("我是js方法被java调用我要给他返回【呵呵哒】");
+			    	return "呵呵哒";
+			}
+
+	        function CallJsMethodParams(param) {
+				alert("我是js方法我被java调用接收参数为【" + param+ "]");
+			}
+
+
+            <!-- java调用js -->
+
+        	function CallJavaMethod() {
+				window.jscalljava.CallJavaMethod();
+			}
+
+			function CallJavaMethodParam() {
+				var vvalues = document.getElementById("params").value;
+				var str = window.jscalljava.CallJavaMethodParam(vvalues);
+				alert(str);
+			}
+
+		</script>
+
+</html>
